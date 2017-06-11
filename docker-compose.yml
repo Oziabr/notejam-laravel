@@ -1,0 +1,17 @@
+laravel:
+  image: reflexions/docker-laravel:latest
+  ports:
+    - 8080:80
+  env_file: .env
+  links:
+    - database
+  volumes:
+    - .:/var/www/laravel
+
+database:
+  image: postgres:9.6
+  ports:
+    - 5444:5432
+  env_file: .env
+  environment:
+    LC_ALL: C.UTF-8
