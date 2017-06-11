@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('pad/{id}/delete', 'PadController@confirm');
+Route::resource('/pad', 'PadController', ['except' => [
+    //'index',
+]]);
