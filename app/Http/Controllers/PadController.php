@@ -10,7 +10,7 @@ class PadController extends Controller
 {
     public function index()
     {
-        return Pad::all();
+        return view('pad/list', ['list' => Pad::all()]);
     }
 
     public function create()
