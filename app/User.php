@@ -17,7 +17,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function padss()
+    public function pads()
     {
         return $this->hasMany('App\Pad');
     }
