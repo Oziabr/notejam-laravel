@@ -25,6 +25,7 @@
                             <tr>
                                 <th scope="row">{{ $pad->id }}</th>
                                 <td>{{ $pad->name }}</td>
+                                <td>{{ $pad->user->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($pad->created_at)->formatLocalized('%d %B %Y') }}</td>
                                 <td><a class='btn btn-default pull-right' href="/pad/{{$pad->id}}">Edit</a></td>
                             </tr>
