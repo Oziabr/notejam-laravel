@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
+
+    private $rules = [
+        'name' => 'required|min:10|max:255',
+    ];
+
     public function index()
     {
         return view('note/list', ['list' => Note::all()]);
@@ -16,6 +21,7 @@ class NoteController extends Controller
 
     public function create(Request $req)
     {
+        $this->validate($req, $this->rules);
         $pad_id = $req->query() ? $req->query()['pad_id'] : null;
         return view('note/create', ['pad_id' => $pad_id]);
     }
@@ -43,6 +49,7 @@ class NoteController extends Controller
 
     public function update(Request $req, Note $note)
     {
+        $this->validate($req, $this->rules);
         $note->name = $req->name;
         $note->text = $req->text;
         $note->pad_id = $req->pad_id;

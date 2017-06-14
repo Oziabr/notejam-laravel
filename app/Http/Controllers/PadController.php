@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PadController extends Controller
 {
+    private $rules = [
+        'name' => 'required|max:255|min:5',
+    ];
+
     public function index()
     {
         return view('pad/list', ['list' => Pad::all()]);
@@ -20,6 +24,7 @@ class PadController extends Controller
 
     public function store(Request $req)
     {
+        $this->validate($req, $this->rules);
         $pad = new Pad;
         $pad->name = $req->name;
         $pad->user_id = Auth::id();
@@ -39,6 +44,7 @@ class PadController extends Controller
 
     public function update(Request $req, Pad $pad)
     {
+        $this->validate($req, $this->rules);
         $pad->name = $req->name;
         $pad->save();
         return redirect('pad/'.$pad->id);
