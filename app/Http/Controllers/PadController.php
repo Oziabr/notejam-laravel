@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PadController extends Controller
 {
     private $rules = [
-        'name' => 'required|max:255|min:5',
+        'name' => 'required|max:255|min:5|unique:pads',
     ];
 
     public function index()

@@ -11,7 +11,7 @@ class NoteController extends Controller
 {
 
     private $rules = [
-        'name' => 'required|min:10|max:255',
+        'name' => 'required|min:10|max:255|unique:notes',
     ];
 
     public function index()
