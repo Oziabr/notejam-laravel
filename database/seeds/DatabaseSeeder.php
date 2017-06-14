@@ -12,7 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        factory(App\User::class, 3)->create();
+        factory(App\User::class)->create(['email' => 'one@example.org', 'password' => bcrypt('123')]);
+        factory(App\User::class)->create(['email' => 'two@example.org']);
+        factory(App\User::class)->create(['email' => 'three@example.org']);
 
         App\User::all()->each(function ($u) {
             $u->pads()->save(factory(App\Pad::class)->make());
