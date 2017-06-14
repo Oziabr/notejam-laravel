@@ -16,6 +16,7 @@
                             <li class="breadcrumb-item"><a href="/notes">All notes</a></li>
                             <li class="breadcrumb-item active">{{ $note->name }}</li>
                         </ol>
+                        @include('shared.errors')
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
