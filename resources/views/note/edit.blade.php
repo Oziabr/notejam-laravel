@@ -44,7 +44,7 @@
                             <label for="pad_id" class="col-md-4 control-label">Pad</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="pad_id" name="pad_id">
-                                @foreach (App\Pad::all() as $pad)
+                                @foreach ($pads as $pad)
                                     @if ($note->pad_id == $pad->id)
                                         <option value='{{$pad->id}}' selected>{{$pad->name}}</option>
                                     @else
