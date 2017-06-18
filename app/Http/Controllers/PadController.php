@@ -23,7 +23,7 @@ class PadController extends Controller
 
     public function index()
     {
-        return view('pad/list', ['list' => Pad::isMine()->get()]);
+        return view('pad/list', ['list' => Pad::isMine()->paginate(5)]);
     }
 
     public function create()

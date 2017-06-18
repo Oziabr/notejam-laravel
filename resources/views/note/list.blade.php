@@ -12,6 +12,7 @@
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">All notes</li>
                     </ol>
+                    {{ $list->links() }}
                     <table class="table">
                         <thead>
                             <tr>

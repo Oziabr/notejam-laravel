@@ -34,7 +34,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        return view('note/list', ['list' => Note::extendsMine()->get()]);
+        return view('note/list', ['list' => Note::extendsMine()->paginate(5)]);
     }
 
     public function create(Request $req)
