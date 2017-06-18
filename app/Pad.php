@@ -2,8 +2,10 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Pad extends Model
 {
@@ -21,6 +23,11 @@ class Pad extends Model
     public function notes()
     {
         return $this->hasMany('App\Note');
+    }
+
+    public function scopeIsMine(Builder $query)
+    {
+        $query->where('user_id', Auth::id());
     }
 
 }

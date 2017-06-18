@@ -23,7 +23,7 @@ class PadController extends Controller
 
     public function index()
     {
-        return view('pad/list', ['list' => Pad::where('user_id', Auth::id())->get()]);
+        return view('pad/list', ['list' => Pad::isMine()->get()]);
     }
 
     public function create()

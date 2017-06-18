@@ -34,7 +34,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        return view('note/list', ['list' => Note::all()]);
+        return view('note/list', ['list' => Note::extendsMine()->get()]);
     }
 
     public function create(Request $req)
